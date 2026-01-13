@@ -10,8 +10,9 @@ l,  = plt.plot([], [], 'k-')
 plt.xlim(-5, 5)
 plt.ylim(-5, 5)
 
+# Define la funcion a graficar.
 def func(x):
-  return np.sin(x)*3
+  return 3*np.sin(x)
 
 metadata = dict(title='Movie', artist='codinglikemad')
 writer = PillowWriter(fps=15, metadata=metadata)
@@ -28,4 +29,5 @@ with writer.saving(fig, "sinWave.gif", 100):
 
     l.set_data(xlist,ylist)
     
+
     writer.grab_frame()
