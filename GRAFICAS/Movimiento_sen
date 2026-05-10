@@ -1,3 +1,7 @@
+"""
+@author: e1n1k0programa@gmail.com
+"""
+
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
@@ -12,7 +16,7 @@ plt.ylim(-5, 5)
 
 # Define la funcion a graficar.
 def func(x):
-  return 3*np.sin(x)
+  return 3*np.sin(x)   #     <===Escribe la funcion aquí.
 
 metadata = dict(title='Movie', artist='codinglikemad')
 writer = PillowWriter(fps=15, metadata=metadata)
@@ -22,7 +26,7 @@ writer = PillowWriter(fps=15, metadata=metadata)
 xlist = []
 ylist = []
 
-with writer.saving(fig, "sinWave.gif", 100):
+with writer.saving(fig, "GRAFICA_EN_MOVIMIENTO.gif", 100):
   for xval in np.linspace(-5, 5, 100):
     xlist.append(xval)
     ylist.append(func(xval))
