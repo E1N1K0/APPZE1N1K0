@@ -13,3 +13,7 @@ Movimiento_sen Permite generar un gif con la ecuacion animada en 2D en funcion d
 <p> <b><dd>Why the project is useful = Para que podría servir el proyecto:</b><br>
 It allows you to embed an animated gif into a presentation or video.<br>
 Permite incrustar un gif animado en una presentacion o video.<br>
+
+<p> <b><dd>Where users can get help with your project = Donde los usuarios pueden encontrar ayuda con el proyecto:</b><br>
+Pueden escribirme a e1n1k0programa@gmail.com<br>
+You can contact me at e1n1k0programa@gmail.com
