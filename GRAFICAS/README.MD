@@ -1,8 +1,8 @@
 <h2><b><u>GRAFICA_EN_MOVIMIENTO; ANIMATED_GRAPH</u></b></h2></p>
 
 <p> <b><dd>History = Historia:</b><br>
-Sometimes, it is required to graph a function that progresses along the x-axis.
-A veces, se requiere graficar una funcion que se despliegue en funcion del eje x.
+Sometimes, it is required to graph a function that progresses along the x-axis.<br>
+A veces, se requiere graficar una funcion que se despliegue en funcion del eje x.<br>
 
 
 <p> <b><dd>What the project does = Que hace el proyecto:</b><br>
