@@ -1,60 +1,139 @@
-#Unir Pdf:
+"""
+@author: E1n1k0programa@gmail.com
 
-#Si no esta instalado, en terminal escribe: pip install PyPDF4
+Unir Pdf:
 
-#Primero instalar librerias! 
-
-#importar módulos para interfaz gráfica:
+Si no esta instalado, escribe pip install PyPDF2, en el terminal y ejecútalo.
+Coloca todos los archivos a unir en la misma carpeta que el script.
+"""
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
+from PyPDF2 import PdfMerger
+import os
 
-#Importar modulo para trabajar con PDF:
-from PyPDF4 import PdfFileMerger
-
-#crear instancia de PdfFileMerge
-unir = PdfFileMerger()
-#Crear lista vacía para los PDF:
-pdfs_a_unir = []
-
-#función para que el usuario seleccione archivos PDF y se agreguen a la lista.
-def seleccionar_archivos():
-    global pdfs_a_unir
-    filenames = filedialog.askopenfilenames(
-        title="Selecciona PDFs (usa CTRL)",
-        filetypes=(("Archivos PDF", "*.pdf"), )
+def agregar_archivos():
+    """Abre un diálogo para seleccionar archivos PDF y los añade a la lista."""
+    archivos_seleccionados = filedialog.askopenfilenames(
+        title="Seleccionar archivos PDF",
+        filetypes=[("Archivos PDF", "*.pdf")]
     )
     
-    pdfs_a_unir.extend(filenames)
-    label["text"] = "Archivos seleccionados: "+str(len(pdfs_a_unir))
+    for archivo in archivos_seleccionados:
+        lista_archivos.insert(tk.END, archivo)
 
-#funcion que itera, une al pdf anterior.
+def limpiar_lista():
+    """Elimina todos los archivos de la lista."""
+    lista_archivos.delete(0, tk.END)
+
 def unir_pdfs():
-    global pdfs_a_unir, unir
+    """Realiza la unión de los PDFs listados."""
+    rutas = lista_archivos.get(0, tk.END)
     
-    for pdf in pdfs_a_unir:
-        unir.append(pdf)
-  
-#write escribe el pdf unido:  
-    unir.write("pdf_unido.pdf")
-    label["text"] += "\n¡PDFs unidos!"
+    if not rutas:
+        messagebox.showwarning("Advertencia", "No has seleccionado ningún archivo para unir.")
+        return
 
-#ENTORNO TKINTER: 
-ventana = tk.Tk()
-#Tamaño ventana:
-ventana.geometry("300x200")
+    # Nombre por defecto fijo a "unido.pdf"
+    nombre_salida = "unido.pdf"
 
-#Titulo entorno:
-ventana.title("Unir PDFs")
+    # Abrir diálogo para elegir dónde guardar
+    ruta_guardado = filedialog.asksaveasfilename(
+        title="Guardar PDF unido como...",
+        initialfile=nombre_salida,  # Predefine el nombre "unido" en el cuadro de diálogo
+        defaultextension=".pdf",
+        filetypes=[("Archivos PDF", "*.pdf")]
+    )
 
-#Boton para agregar pdf:
-button1 = tk.Button(ventana, text="Selecciona PDFs", command=seleccionar_archivos)
-button1.pack()
+    if not ruta_guardado:
+        return  # El usuario canceló el guardado
 
-#Boton para unir pdf:
-button2 = tk.Button(ventana, text="Unir PDFs", command=unir_pdfs)
-button2.pack()
-  
-label = tk.Label(ventana, text="")
-label.pack()
-  
-ventana.mainloop()
+    try:
+        merger = PdfMerger()
+        
+        for pdf in rutas:
+            merger.append(pdf)
+        
+        merger.write(ruta_guardado)
+        merger.close()
+        
+        messagebox.showinfo("Éxito", f"¡PDFs unidos exitosamente!\nGuardado en:\n{ruta_guardado}")
+        limpiar_lista()
+        
+    except Exception as e:
+        messagebox.showerror("Error", f"Ocurrió un error al unir los archivos:\n{str(e)}")
+
+# --- Configuración de la Interfaz Gráfica ---
+
+root = tk.Tk()
+root.title("Unir PDFs")
+root.geometry("500x350")
+
+# Lista para mostrar archivos
+tk.Label(root, text="Archivos a unir (en orden):").pack(pady=(15, 0))
+frame_lista = tk.Frame(root)
+frame_lista.pack(pady=5, fill=tk.BOTH, expand=True, padx=10)
+
+scrollbar = tk.Scrollbar(frame_lista)
+scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+lista_archivos = tk.Listbox(frame_lista, yscrollcommand=scrollbar.set)
+lista_archivos.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+scrollbar.config(command=lista_archivos.yview)
+
+# Botones de acción
+frame_botones = tk.Frame(root)
+frame_botones.pack(pady=15)
+
+btn_agregar = tk.Button(frame_botones, text="Agregar PDFs", command=agregar_archivos, bg="#DDDDDD")
+btn_agregar.pack(side=tk.LEFT, padx=10)
+
+btn_limpiar = tk.Button(frame_botones, text="Limpiar Lista", command=limpiar_lista, bg="#DDDDDD")
+btn_limpiar.pack(side=tk.LEFT, padx=10)
+
+btn_unir = tk.Button(frame_botones, text="UNIR PDFs", command=unir_pdfs, bg="#90EE90", font=("Arial", 10, "bold"))
+btn_unir.pack(side=tk.LEFT, padx=10)
+
+# Iniciar la aplicación
+root.mainloop()
+root.title("Unir PDFs")
+root.geometry("500x400")
+
+# Etiqueta y Campo para el nombre de salida
+frame_nombre = tk.Frame(root)
+frame_nombre.pack(pady=10)
+
+"""
+tk.Label(frame_nombre, text="Nombre del archivo de salida:").pack(side=tk.LEFT)
+entrada_nombre = tk.Entry(frame_nombre, width=30)
+entrada_nombre.insert(0, "unido") # Valor por defecto
+entrada_nombre.pack(side=tk.LEFT, padx=5)
+"""
+
+# Lista para mostrar archivos
+tk.Label(root, text="Archivos a unir (en orden):").pack(pady=(10, 0))
+frame_lista = tk.Frame(root)
+frame_lista.pack(pady=5, fill=tk.BOTH, expand=True, padx=10)
+
+
+scrollbar = tk.Scrollbar(frame_lista)
+scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+lista_archivos = tk.Listbox(frame_lista, yscrollcommand=scrollbar.set)
+lista_archivos.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+scrollbar.config(command=lista_archivos.yview)
+
+# Botones de acción
+frame_botones = tk.Frame(root)
+frame_botones.pack(pady=15)
+
+btn_agregar = tk.Button(frame_botones, text="Agregar PDFs", command=agregar_archivos, bg="#DDDDDD")
+btn_agregar.pack(side=tk.LEFT, padx=10)
+
+btn_limpiar = tk.Button(frame_botones, text="Limpiar Lista", command=limpiar_lista, bg="#DDDDDD")
+btn_limpiar.pack(side=tk.LEFT, padx=10)
+
+btn_unir = tk.Button(frame_botones, text="UNIR PDFs", command=unir_pdfs, bg="#90EE90", font=("Arial", 10, "bold"))
+btn_unir.pack(side=tk.LEFT, padx=10)
+
+# Iniciar la aplicación
+root.mainloop()
