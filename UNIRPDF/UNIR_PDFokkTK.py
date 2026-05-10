@@ -6,6 +6,7 @@ Unir Pdf:
 Si no esta instalado, escribe pip install PyPDF2, en el terminal y ejecútalo.
 Coloca todos los archivos a unir en la misma carpeta que el script.
 """
+
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PyPDF2 import PdfMerger
@@ -102,12 +103,6 @@ root.geometry("500x400")
 frame_nombre = tk.Frame(root)
 frame_nombre.pack(pady=10)
 
-"""
-tk.Label(frame_nombre, text="Nombre del archivo de salida:").pack(side=tk.LEFT)
-entrada_nombre = tk.Entry(frame_nombre, width=30)
-entrada_nombre.insert(0, "unido") # Valor por defecto
-entrada_nombre.pack(side=tk.LEFT, padx=5)
-"""
 
 # Lista para mostrar archivos
 tk.Label(root, text="Archivos a unir (en orden):").pack(pady=(10, 0))
