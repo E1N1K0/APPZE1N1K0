@@ -7,7 +7,7 @@ Unir PDF.
 
 ## What the project does = Que hace el proyecto:
 <ol>
-  <li>Run UNIR_PDFokkTK - ejec.pyw</li>
+  <li>Run UNIR_PDF_kTK.py</li>
   <li>Select the PDFs to join (you can use CTRL to select multiple PDFs).</li>
   <li>Press the merge PDF button.</li>
   <li>Done!</li>
