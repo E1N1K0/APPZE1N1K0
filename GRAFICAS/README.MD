@@ -1,4 +1,5 @@
 GRAFICA_EN_MOVIMIENTO; ANIMATED_GRAPH
+
 History = Historia:
 Sometimes, it is required to graph a function that progresses along the x-axis.
 A veces, se requiere graficar una funcion que se despliegue en funcion del eje x.
