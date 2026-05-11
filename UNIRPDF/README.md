@@ -13,7 +13,7 @@ Unir PDF.
   <li>Done!</li>
 </ol>
 <ol>  
-  <li>Ejecuta el archivo UNIR_PDF_kTK.py - ejec.pyw.</li>
+  <li>Ejecuta el archivo UNIR_PDF_kTK.py.</li>
   <li>Selecciona los PDF a unir (puedes utilizar CTRL para seleccionar varios PDF).</li>
   <li>Presiona el boton unir PDF.</li>
   <li>Listo!</li>
