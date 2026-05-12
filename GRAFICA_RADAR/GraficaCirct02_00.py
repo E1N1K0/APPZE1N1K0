@@ -2,7 +2,7 @@
 """
 Created on Mon Nov 11 01:11:11 2024
 
-@author: Nicolas
+@author: E1n1k0programa@gmail.com
 """
 
 # Approximate color palette based on the provided image
