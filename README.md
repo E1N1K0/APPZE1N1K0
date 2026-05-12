@@ -4,10 +4,11 @@
 Distintas aplicaciones.<br>
 
 ## What the project does = Que hace el proyecto:
-DINAMICA = Ejercicio de calculo de dinamica Master estructuras UGR.<br>
-GRAFICAS = Genera grafica animada.<br>
+DINAMICA = Ejercicio de cálculo de dinámica Master estructuras UGR.<br>
+GRAFICAS = Genera gráfica animada.<br>
+GRAFICA_RADAR = Genera gráfica de radar para análisis sensorial de aceites escenciales.<br>
 TOOLS = <br>
-UNIR PDF = Une pdf <br>
+UNIR PDF = Une pdf. <br>
 
 ## Why the project is useful = Para que podría servir el proyecto:
   Permite unir PDF.<br>
