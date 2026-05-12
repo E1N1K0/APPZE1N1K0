@@ -13,7 +13,7 @@ Se requería graficar analisis sensorial de un aceite escencial.<br>
 <ol>  
   <li>Asegura que el archivo HOJA_TABULADA03.xlsx este en la misma carpeta que el archivo GraficaCirct02_00.py.</li>
   <li>Ejecuta el archivo GraficaCirct02_00.py.</li>
-  <li>Se creara carpeta GRAFICA_CIRCULAR con las graficas de radar.</li>
+  <li>Se creará carpeta GRAFICA_CIRCULAR con las graficas de radar.</li>
   <li>Listo!</li>
 </ol>
 
