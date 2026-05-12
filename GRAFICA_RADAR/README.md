@@ -1,13 +1,14 @@
 # MERGE PDF = UNIR PDF
 
 ## History = Historia:
+It was required to plot the sensory analysis of an essential oil.<br>
 Se requería graficar analisis sensorial de un aceite escencial.<br>
 
 ## What the project does = Que hace el proyecto:
 <ol>
+  <li>Make sure the file HOJA_TABULADA03.xlsx is in the same folder as the file GraficaCirct02_00.py.</li>
   <li>Run GraficaCirct02_00.py</li>
-  <li>Select the PDFs to join (you can use CTRL to select multiple PDFs).</li>
-  <li>aaa.</li>
+  <li>A folder named GRAFICA_CIRCULAR will be created with the radar charts.</li>
   <li>Done!</li>
 </ol>
 <ol>  
@@ -20,7 +21,7 @@ Se requería graficar analisis sensorial de un aceite escencial.<br>
 
 ## Why the project is useful = Para que podría servir el proyecto:
   Permite crear graficas de radar.<br>
-  AaaaF.
+ It allows creating radar charts.
 
  
      
