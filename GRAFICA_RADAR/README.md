@@ -1,28 +1,26 @@
 # MERGE PDF = UNIR PDF
 
 ## History = Historia:
-Merge PDF.<br>
-
-Unir PDF.
+Se requería graficar analisis sensorial de un aceite escencial.<br>
 
 ## What the project does = Que hace el proyecto:
 <ol>
-  <li>Run UNIR_PDF_kTK.py</li>
+  <li>Run GraficaCirct02_00.py</li>
   <li>Select the PDFs to join (you can use CTRL to select multiple PDFs).</li>
-  <li>Press the unir (merge) PDF button.</li>
+  <li>aaa.</li>
   <li>Done!</li>
 </ol>
 <ol>  
-  <li>Ejecuta el archivo UNIR_PDF_kTK.py.</li>
-  <li>Selecciona los PDF a unir (puedes utilizar CTRL para seleccionar varios PDF).</li>
-  <li>Presiona el boton unir PDF.</li>
+  <li>Asegura que el archivo HOJA_TABULADA03.xlsx este en la misma carpeta que el archivo GraficaCirct02_00.py.</li>
+  <li>Ejecuta el archivo GraficaCirct02_00.py.</li>
+  <li>Se creara carpeta GRAFICA_CIRCULAR con las graficas de radar.</li>
   <li>Listo!</li>
 </ol>
 
 
 ## Why the project is useful = Para que podría servir el proyecto:
-  Permite unir PDF.<br>
-  Allows merge PDF.
+  Permite crear graficas de radar.<br>
+  AaaaF.
 
  
      
